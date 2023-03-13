@@ -8,19 +8,6 @@
 import Foundation
 import Combine 
 
-/*
- Sequence
- 
- 1) App loads, calls fetch top stories, fetch first page
- 
- 2) paging:
- 
- 
- 
- 
- 
- */
-
 enum HackerNewsState: Equatable {
     case initialLoad
     case fetching
@@ -71,11 +58,8 @@ enum HackerNewsState: Equatable {
         }
 
         do {
-            let storyIds = try await service.fetchTopStoryIds()
-            topStoryIds = storyIds
-            print("top stories fetched, HN View Model -- story ids count:", topStoryIds.count)
-            let firstStories = try await fetchFirstPage(ids: storyIds)
-            print("first stories fetched!")
+            topStoryIds = try await service.fetchTopStoryIds()
+            let firstStories = try await fetchFirstPage(ids: topStoryIds)
             await MainActor.run {
                 self.topStories.append(contentsOf: firstStories)
                 state = .loaded
@@ -96,10 +80,8 @@ enum HackerNewsState: Equatable {
         }
         currentPage = 0
         do {
-            let storyIds = try await service.fetchTopStoryIds()
-            topStoryIds = storyIds
-            print("top stories fetched, HN View Model -- story ids count:", topStoryIds.count)
-            let firstStories = try await fetchFirstPage(ids: storyIds)
+            topStoryIds = try await service.fetchTopStoryIds()
+            let firstStories = try await fetchFirstPage(ids: topStoryIds)
             await MainActor.run {
                 self.topStories.append(contentsOf: firstStories)
                 state = .loaded

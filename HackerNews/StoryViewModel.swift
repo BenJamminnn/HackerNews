@@ -11,7 +11,7 @@ import UIKit
  TODO:
  - Threading issues
  - Implement sorting, search?
-
+ - FIX REFRESH
  - [Done] loading indicator for comments
  - [Done] why 2 loading vars in stories list?
  - [Done] Deal with error states
