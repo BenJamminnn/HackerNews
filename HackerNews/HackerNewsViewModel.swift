@@ -32,18 +32,26 @@ enum HackerNewsState: Equatable {
 
 @MainActor class HackerNewsViewModel: ObservableObject {
 
-    let service = HackerNewsRepository()
+    private let service = HackerNewsRepository()
 
     // Get Story Ids first, then load story by page
     private var topStoryIds = [Int]()
     
+    // Published
     @Published var topStories = [Story]()
-    
+    @Published var state: HackerNewsState = .initialLoad
+
+    // Paging vars
     private var currentPage = 1
     private let maxPageLimit = 10
     private let batchSize = 50
 
-    @Published var state: HackerNewsState = .initialLoad
+    private var shouldNotLoadNextPage: Bool {
+        return state == .fetching ||
+            state == .initialLoad ||
+            currentPage >= maxPageLimit ||
+            topStoryIds.isEmpty
+    }
     
     init() {
         Task {
@@ -118,20 +126,16 @@ enum HackerNewsState: Equatable {
     
     func fetchNextPage() async {
         // If we're already loading something, don't load this
-        print("fetching next page state: ", state)
-        print("story id count: ", topStoryIds.count)
-        if state == .fetching || state == .initialLoad || currentPage >= maxPageLimit || topStoryIds.isEmpty { return }
+        if shouldNotLoadNextPage { return }
 
         do {
             state = .fetching
-            print("fetching next page: ", currentPage)
             let stories = try await service.fetchStoriesAt(page: currentPage, batchSize: batchSize, stories: topStoryIds)
             currentPage += 1
             self.topStories.append(contentsOf: stories)
             state = .loaded
         } catch {
             if Task.isCancelled {
-                print("task cancelled - fetch next page")
                 state = .error(errorMessage: "task cancelled")
                 return
             }

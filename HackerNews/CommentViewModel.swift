@@ -8,7 +8,7 @@
 import UIKit
 
 class CommentViewModel: ObservableObject {
-    let service = HackerNewsRepository()
+    private let service = HackerNewsRepository()
 
     @Published var childComments = [Comment]()
     @Published var isCollapsed = false

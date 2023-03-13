@@ -30,13 +30,12 @@ enum CommentState {
 }
 
 class StoryViewModel: ObservableObject {
-    let service = HackerNewsRepository()
+    private let service = HackerNewsRepository()
     
     @Published var topLevelComments = [Comment]()
+    @Published var state: CommentState = .isLoading
 
     let story: Story
-    
-    @Published var state: CommentState = .isLoading
     
     init(story: Story) {
         self.story = story
