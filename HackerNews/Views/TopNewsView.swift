@@ -12,7 +12,6 @@ let hackerNewsBgColor = Color(uiColor: bgColor)
 
 struct TopStoriesView: View {
     @ObservedObject var viewModel: HackerNewsViewModel
-    @State var isLoading = false
     
     var body: some View {
         NavigationStack {

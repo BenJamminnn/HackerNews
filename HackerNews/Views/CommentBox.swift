@@ -13,15 +13,17 @@ struct CommentBox: View {
     var body: some View {
         VStack {
             comment
+                .padding(.leading, 12)
+                .padding(.trailing, 4)
+                .padding(.bottom, 6)
             if !commentViewModel.isCollapsed {
-                childrenComments
+                childComments
             }
         }
         .task {
             await commentViewModel.fetchChildComments()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(4)
     }
     
     @ViewBuilder
@@ -32,7 +34,6 @@ struct CommentBox: View {
             }
         } else {
             commentBody
-                .padding(.vertical, 2)
         }
     }
     
@@ -54,8 +55,8 @@ struct CommentBox: View {
                 }
             }
             if !commentViewModel.isCollapsed {
-                Text(commentViewModel.comment.readableText)
-                    .font(.custom("Verdana", size: 13))
+                Text(LocalizedStringKey(commentViewModel.comment.readableText))
+                    .font(.custom("Verdana", size: 12))
                     .foregroundColor(Color(.black))
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -72,13 +73,13 @@ struct CommentBox: View {
             .padding(.vertical, 0.1)
     }
     
-    var childrenComments: some View {
+    var childComments: some View {
         VStack {
             ForEach(commentViewModel.childComments, id: \.self) { comment in
                 CommentBox(commentViewModel: CommentViewModel(comment: comment))
             }
         }
-        .padding(.leading, 8)
+        .padding(.leading, 10)
     }
 }
 

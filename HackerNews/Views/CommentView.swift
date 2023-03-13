@@ -56,10 +56,13 @@ struct CommentView: View {
     
     var comments: some View {
         ScrollView {
-            textBody
-            ForEach(storyViewModel.topLevelComments, id: \.self) { comment in
-                CommentBox(commentViewModel: CommentViewModel(comment: comment))
+            VStack {
+                textBody
+                ForEach(storyViewModel.topLevelComments, id: \.self) { comment in
+                    CommentBox(commentViewModel: CommentViewModel(comment: comment))
+                }
             }
+            .padding(.vertical, 12)
         }
     }
 }

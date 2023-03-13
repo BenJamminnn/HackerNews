@@ -9,12 +9,12 @@ import UIKit
 
 /*
  TODO:
- - [Done] loading indicator for comments
- - why 2 loading vars in stories list?
  - Threading issues
- - Implement sorting
- - Implement "Best"
- - Deal with error states
+ - Implement sorting, search?
+
+ - [Done] loading indicator for comments
+ - [Done] why 2 loading vars in stories list?
+ - [Done] Deal with error states
  - [Done] Fix extra padding around comments
  - [Done] Enable paging on stories
  - [Done] why dont top stories correlate with frontend (paging issue)
