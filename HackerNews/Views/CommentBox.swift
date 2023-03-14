@@ -94,7 +94,7 @@ struct CommentBox_Previews: PreviewProvider {
                                                                            time: 1677887295,
                                                                            type: .comment,
                                                                            deleted: false
-                                                                           )))
+                                                                          )))
             CommentBox(commentViewModel: CommentViewModel(comment: Comment(by: "Super user 12 12",
                                                                            id: 35016553,
                                                                            kids: nil,

@@ -12,6 +12,8 @@ import UIKit
  - Threading issues
  - Implement sorting, search?
  - FIX REFRESH
+ - Comment View - show loading indicator
+ - Fix Links in comments
  - [Done] loading indicator for comments
  - [Done] why 2 loading vars in stories list?
  - [Done] Deal with error states
@@ -55,7 +57,6 @@ class StoryViewModel: ObservableObject {
             }
         } catch {
             await MainActor.run {
-                print("error: ", error)
                 let errorString = (error as? FetchNewsError)?.description ?? "Error Found!\n\(error.localizedDescription)"
                 state = .error(errorMessage: errorString)
             }

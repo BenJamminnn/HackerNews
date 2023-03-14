@@ -23,25 +23,21 @@ struct Comment: Codable, Hashable {
     
     var readableText: String {
         guard let text else { return "" }
-        let apostrophe = "&#x27;"
-        let forwardSlash = "&#x2F;"
-        let aTag = "<a href="
-        let aTagEnd = "</a>"
-        let pTag = "<p>"
-        let italicsTagStart = "<i>"
-        let italicsTagEnd = "</i>"
-        let forwardCarrot = "&gt;"
-        let quote = "&quot;"
-        let readableText = text
-            .replacingOccurrences(of: apostrophe, with: "'")
-            .replacingOccurrences(of: forwardSlash, with: "/")
-            .replacingOccurrences(of: aTag, with: "")
-            .replacingOccurrences(of: aTagEnd, with: "")
-            .replacingOccurrences(of: pTag, with: "")
-            .replacingOccurrences(of: italicsTagStart, with: "*")
-            .replacingOccurrences(of: italicsTagEnd, with: "*")
-            .replacingOccurrences(of: forwardCarrot, with: ">")
-            .replacingOccurrences(of: quote, with: "\"")
+        let readableText = text.stripOutHtml() ?? ""
         return readableText
+    }
+}
+
+extension String {
+    func stripOutHtml() -> String? {
+        do {
+            guard let data = self.data(using: .unicode) else {
+                return nil
+            }
+            let attributed = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html, .characterEncoding: String.Encoding.utf8.rawValue], documentAttributes: nil)
+            return attributed.string
+        } catch {
+            return nil
+        }
     }
 }

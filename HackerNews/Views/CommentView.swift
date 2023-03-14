@@ -50,8 +50,9 @@ struct CommentView: View {
                     .textSelection(.enabled)
             }
             .padding(12)
+        } else {
+            EmptyView()
         }
-        EmptyView()
     }
     
     var comments: some View {

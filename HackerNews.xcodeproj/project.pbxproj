@@ -93,17 +93,14 @@
 			isa = PBXGroup;
 			children = (
 				B54B1A4829AED6F600830EA5 /* Info.plist */,
-				B54B1A4629AEA4D900830EA5 /* dummyStories.swift */,
-				B54B1A5229B27FF300830EA5 /* StoryViewModel.swift */,
-				B54B1A6029B2E9BB00830EA5 /* CommentViewModel.swift */,
-				B54B1A4429AE666400830EA5 /* HackerNewsViewModel.swift */,
+				B5C36D0529C0D6DA00AA7DE2 /* View Models */,
+				B5C36D0429C0D6B000AA7DE2 /* Utility */,
 				B54B1A3F29AE5D3100830EA5 /* Views */,
 				B54B1A3829ABD9E400830EA5 /* Networking */,
 				B54B1A3729ABD9DC00830EA5 /* Model */,
 				B54B1A2929ABD9D700830EA5 /* HackerNewsApp.swift */,
 				B54B1A2D29ABD9D800830EA5 /* Assets.xcassets */,
 				B54B1A2F29ABD9D800830EA5 /* Preview Content */,
-				B54B1A4D29B0F57E00830EA5 /* DateHelper.swift */,
 			);
 			path = HackerNews;
 			sourceTree = "<group>";
@@ -144,13 +141,32 @@
 				B54B1A4029AE5D4500830EA5 /* BestNewsView.swift */,
 				B54B1A4229AE5D7B00830EA5 /* TopNewsView.swift */,
 				B54B1A4929AEE26E00830EA5 /* StoryRow.swift */,
-				B54B1A4B29AEE4C800830EA5 /* Colors.swift */,
 				B54B1A4F29B27DB500830EA5 /* CommentView.swift */,
 				B54B1A6229B901F900830EA5 /* StoriesList.swift */,
 				B5C36D0029BEAA6000AA7DE2 /* LoadingView.swift */,
 				B5C36D0229BEAAA800AA7DE2 /* ErrorStateView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		B5C36D0429C0D6B000AA7DE2 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				B54B1A4629AEA4D900830EA5 /* dummyStories.swift */,
+				B54B1A4D29B0F57E00830EA5 /* DateHelper.swift */,
+				B54B1A4B29AEE4C800830EA5 /* Colors.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		B5C36D0529C0D6DA00AA7DE2 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+				B54B1A5229B27FF300830EA5 /* StoryViewModel.swift */,
+				B54B1A6029B2E9BB00830EA5 /* CommentViewModel.swift */,
+				B54B1A4429AE666400830EA5 /* HackerNewsViewModel.swift */,
+			);
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,6 +399,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -415,6 +432,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
