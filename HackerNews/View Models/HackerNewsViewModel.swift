@@ -69,38 +69,11 @@ enum HackerNewsState: Equatable {
             topStoryIds = try await service.fetchTopStoryIds()
             let firstStories = try await fetchFirstPage(ids: topStoryIds)
             await MainActor.run {
-                self.topStories.append(contentsOf: firstStories)
+                topStories = firstStories
                 state = .loaded
             }
         } catch {
             await MainActor.run {
-                let errorString = (error as? FetchNewsError)?.description ?? "Error Found!\n\(error.localizedDescription)"
-                state = .error(errorMessage: errorString)
-            }
-        }
-    }
-    
-
-    func refreshStories() async {
-        await MainActor.run {
-            state = .initialLoad
-            topStories = [Story]()
-        }
-        currentPage = 0
-        do {
-            topStoryIds = try await service.fetchTopStoryIds()
-            let firstStories = try await fetchFirstPage(ids: topStoryIds)
-            await MainActor.run {
-                self.topStories.append(contentsOf: firstStories)
-                state = .loaded
-            }
-        } catch {
-            await MainActor.run {
-                if Task.isCancelled {
-                    state = .error(errorMessage: "Thread issue")
-                    print("task was cancelled")
-                    return
-                }
                 let errorString = (error as? FetchNewsError)?.description ?? "Error Found!\n\(error.localizedDescription)"
                 state = .error(errorMessage: errorString)
             }

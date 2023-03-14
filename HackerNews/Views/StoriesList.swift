@@ -30,7 +30,9 @@ struct StoriesList: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.vertical, 8)
         .refreshable {
-            await viewModel.refreshStories()
+            Task {
+                await viewModel.fetchTopStories()
+            }
         }
     }
     
