@@ -31,6 +31,7 @@
 		B54B1A6329B901F900830EA5 /* StoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54B1A6229B901F900830EA5 /* StoriesList.swift */; };
 		B5C36D0129BEAA6000AA7DE2 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C36D0029BEAA6000AA7DE2 /* LoadingView.swift */; };
 		B5C36D0329BEAAA800AA7DE2 /* ErrorStateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C36D0229BEAAA800AA7DE2 /* ErrorStateView.swift */; };
+		B5C36D0729C0E2EF00AA7DE2 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C36D0629C0E2EF00AA7DE2 /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,7 @@
 		B54B1A6229B901F900830EA5 /* StoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoriesList.swift; sourceTree = "<group>"; };
 		B5C36D0029BEAA6000AA7DE2 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		B5C36D0229BEAAA800AA7DE2 /* ErrorStateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorStateView.swift; sourceTree = "<group>"; };
+		B5C36D0629C0E2EF00AA7DE2 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +147,7 @@
 				B54B1A6229B901F900830EA5 /* StoriesList.swift */,
 				B5C36D0029BEAA6000AA7DE2 /* LoadingView.swift */,
 				B5C36D0229BEAAA800AA7DE2 /* ErrorStateView.swift */,
+				B5C36D0629C0E2EF00AA7DE2 /* WebView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B54B1A5929B2902D00830EA5 /* FetchNewsError.swift in Sources */,
+				B5C36D0729C0E2EF00AA7DE2 /* WebView.swift in Sources */,
 				B54B1A6329B901F900830EA5 /* StoriesList.swift in Sources */,
 				B54B1A5329B27FF300830EA5 /* StoryViewModel.swift in Sources */,
 				B54B1A4729AEA4D900830EA5 /* dummyStories.swift in Sources */,
@@ -387,7 +391,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"HackerNews/Preview Content\"";
 				DEVELOPMENT_TEAM = RDT7K59Q4P;
 				ENABLE_PREVIEWS = YES;
@@ -420,7 +424,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"HackerNews/Preview Content\"";
 				DEVELOPMENT_TEAM = RDT7K59Q4P;
 				ENABLE_PREVIEWS = YES;

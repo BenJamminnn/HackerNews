@@ -40,9 +40,9 @@ struct CommentView: View {
     
     @ViewBuilder
     var textBody: some View {
-        if storyViewModel.story.text != nil {
+        if let storyText = storyViewModel.story.readableText {
             VStack {
-                Text(storyViewModel.story.text ?? "")
+                Text(LocalizedStringKey(storyText))
                     .font(.custom("Verdana", size: 10))
                     .foregroundColor(Color(.black))
                     .multilineTextAlignment(.leading)

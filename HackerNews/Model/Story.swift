@@ -39,4 +39,11 @@ struct Story: Codable, Hashable, Equatable {
     var subheadline: String {
         return "\(score) points by \(by) \(DateHelper.timeToReadableTime(time))"
     }
+    
+    var readableText: String? {
+        if let text {
+            return text.stripOutHtml() ?? ""
+        }
+        return nil
+    }
 }
