@@ -98,8 +98,8 @@ struct StoryRow_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             StoryRow(storyViewModel: StoryViewModel(story: storyExample1), index: 0)
-            StoryRow(storyViewModel: StoryViewModel(story: storyExample2), index: 1)
-            StoryRow(storyViewModel: StoryViewModel(story: storyExample), index: 2)
+            StoryRow(storyViewModel: StoryViewModel(story: storyExample2), index: 10)
+            StoryRow(storyViewModel: StoryViewModel(story: storyExample), index: 124)
         }
     }
 }
