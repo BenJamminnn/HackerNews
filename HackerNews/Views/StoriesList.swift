@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct StoriesList: View {
-    @ObservedObject var viewModel: HackerNewsViewModel
+    @Bindable var viewModel: HackerNewsViewModel
     var body: some View {
         VStack {
             scrollView

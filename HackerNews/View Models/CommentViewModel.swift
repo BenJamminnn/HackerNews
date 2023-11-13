@@ -7,12 +7,13 @@
 
 import UIKit
 
-class CommentViewModel: ObservableObject {
+@Observable
+class CommentViewModel {
     private let service = HackerNewsRepository()
 
-    @Published var childComments = [Comment]()
-    @Published var isCollapsed = false
-    @Published var errorStateString: String?
+    var childComments = [Comment]()
+    var isCollapsed = false
+    var errorStateString: String?
 
     let comment: Comment
     

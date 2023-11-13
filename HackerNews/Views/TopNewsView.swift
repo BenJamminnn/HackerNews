@@ -10,7 +10,7 @@ import SwiftUI
 let hackerNewsBgColor = Color(uiColor: bgColor)
 
 struct TopStoriesView: View {
-    @ObservedObject var viewModel: HackerNewsViewModel
+    @Bindable var viewModel: HackerNewsViewModel
     
     var body: some View {
         NavigationStack {

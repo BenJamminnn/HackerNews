@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CommentView: View {
     
-    @ObservedObject var storyViewModel: StoryViewModel
+    var storyViewModel: StoryViewModel
 
     var body: some View {
         VStack {

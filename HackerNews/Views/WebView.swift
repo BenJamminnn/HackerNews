@@ -7,12 +7,14 @@
 
 import SwiftUI
 import WebKit
+import Observation
 
-class WebViewModel: ObservableObject {
-    @Published var isLoading: Bool = false
-    @Published var canGoBack: Bool = false
-    @Published var shouldGoBack: Bool = false
-    @Published var title: String = ""
+@Observable
+class WebViewModel {
+    var isLoading: Bool = false
+    var canGoBack: Bool = false
+    var shouldGoBack: Bool = false
+    var title: String = ""
     
     var url: String
     
@@ -23,7 +25,7 @@ class WebViewModel: ObservableObject {
 }
 
 struct WebViewContainer: UIViewRepresentable {
-    @ObservedObject var webViewModel: WebViewModel
+    var webViewModel: WebViewModel
     
     func makeCoordinator() -> WebViewContainer.Coordinator {
         Coordinator(self, webViewModel)
@@ -54,7 +56,7 @@ struct WebViewContainer: UIViewRepresentable {
 
 extension WebViewContainer {
     class Coordinator: NSObject, WKNavigationDelegate {
-        @ObservedObject private var webViewModel: WebViewModel
+        @Bindable private var webViewModel: WebViewModel
         private let parent: WebViewContainer
         
         init(_ parent: WebViewContainer, _ webViewModel: WebViewModel) {
@@ -79,7 +81,7 @@ extension WebViewContainer {
 }
 
 struct WebView: View {
-    @ObservedObject var webViewModel: WebViewModel
+    @Bindable var webViewModel: WebViewModel
     
     var body: some View {
         NavigationStack {

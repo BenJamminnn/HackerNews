@@ -6,24 +6,7 @@
 //
 
 import UIKit
-
-/*
- TODO:
- - Threading issues
- - Implement sorting, search?
- - FIX REFRESH
- - Comment View - show loading indicator
- - Fix Links in comments
- - [Done] loading indicator for comments
- - [Done] why 2 loading vars in stories list?
- - [Done] Deal with error states
- - [Done] Fix extra padding around comments
- - [Done] Enable paging on stories
- - [Done] why dont top stories correlate with frontend (paging issue)
- - [Done] Initial loading screen is off
- - [Done] Fix subheadline issue
- */
-
+import Observation
 
 enum CommentState {
     case loaded
@@ -31,11 +14,12 @@ enum CommentState {
     case error(errorMessage: String)
 }
 
-class StoryViewModel: ObservableObject {
+@Observable
+class StoryViewModel {
     private let service = HackerNewsRepository()
     
-    @Published var topLevelComments = [Comment]()
-    @Published var state: CommentState = .isLoading
+    var topLevelComments = [Comment]()
+    var state: CommentState = .isLoading
 
     let story: Story
     

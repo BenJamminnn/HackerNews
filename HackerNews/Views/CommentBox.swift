@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CommentBox: View {
-    @ObservedObject var commentViewModel: CommentViewModel
+    @Bindable var commentViewModel: CommentViewModel
     
     var body: some View {
         VStack {

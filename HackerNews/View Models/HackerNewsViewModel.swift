@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine 
+import Observation
 
 enum HackerNewsState: Equatable {
     case initialLoad
@@ -30,16 +31,16 @@ enum HackerNewsState: Equatable {
     }
 }
 
-@MainActor class HackerNewsViewModel: ObservableObject {
+@Observable
+class HackerNewsViewModel {
 
     private let service = HackerNewsRepository()
 
     // Get Story Ids first, then load story by page
     private var topStoryIds = [Int]()
     
-    // Published
-    @Published var topStories = [Story]()
-    @Published var state: HackerNewsState = .initialLoad
+    var topStories = [Story]()
+    var state: HackerNewsState = .initialLoad
 
     // Paging vars
     private var currentPage = 1
